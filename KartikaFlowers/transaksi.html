@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>KartikaFlowers</title>
+</head>
+<body>
+
+<!-- Konten sebelumnya -->
+
+<section class="transaction" id="transaction">
+    <h1 class="heading"> <span>Transaction</span> </h1>
+    <div class="cart-container">
+        <div class="cart-items">
+            <h2>Your Cart</h2>
+            <ul id="cart-list">
+                <!-- Produk yang ditambahkan akan muncul di sini -->
+            </ul>
+        </div>
+        <div class="cart-summary">
+            <h2>Order Summary</h2>
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: IDR <span id="total-price">0</span></p>
+            <button id="checkout-btn" class="btn">Checkout</button>
+        </div>
+    </div>
+</section>
+
+<!-- Konten sebelumnya -->
+
+<script>
+    const cart = [];
+
+    // Fungsi untuk menambahkan produk ke keranjang
+    function addToCart(productName, productPrice) {
+        const product = { name: productName, price: productPrice };
+        cart.push(product);
+        updateCartUI();
+        alert(`${productName} telah ditambahkan ke keranjang.`);
+    }
+
+    // Fungsi untuk memperbarui tampilan keranjang
+    function updateCartUI() {
+        const cartList = document.getElementById('cart-list');
+        const totalItems = document.getElementById('total-items');
+        const totalPrice = document.getElementById('total-price');
+
+        cartList.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((product, index) => {
+            total += product.price;
+            const listItem = document.createElement('li');
+            listItem.textContent = `${product.name} - IDR ${product.price}`;
+
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = () => {
+                cart.splice(index, 1);
+                updateCartUI();
+            };
+
+            listItem.appendChild(removeBtn);
+            cartList.appendChild(listItem);
+        });
+
+        totalItems.textContent = cart.length;
+        totalPrice.textContent = total;
+    }
+
+    // Event listener untuk tombol Checkout
+    document.getElementById('checkout-btn').onclick = () => {
+        if (cart.length === 0) {
+            alert('Keranjang kosong. Tambahkan produk terlebih dahulu.');
+        } else {
+            alert('Terima kasih atas pembelian Anda!');
+            cart.length = 0; // Kosongkan keranjang
+            updateCartUI();
+        }
+    };
+
+    // Menambahkan event listener ke tombol "Tambahkan ke keranjang"
+    document.querySelectorAll('.cart-btn').forEach(button => {
+        button.onclick = (e) => {
+            const productElement = e.target.closest('.box');
+            const productName = productElement.querySelector('h3').textContent;
+            const productPrice = parseInt(productElement.querySelector('.price').textContent.replace(/[^0-9]/g, ''));
+
+            addToCart(productName, productPrice);
+        };
+    });
+</script>
+
+</body>
+</html>

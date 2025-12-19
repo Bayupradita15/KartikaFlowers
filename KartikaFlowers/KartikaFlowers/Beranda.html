@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Beranda</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            gap: 20px; /* Jarak antar item navbar */
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .icons {
+            float: right;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 80px; /* Tambahkan jarak setelah navbar */
+        }
+        ol {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Tambahkan jarak setelah heading */
+        }
+        li {
+            margin-bottom: 40px; /* Tambahkan jarak vertikal antar langkah */
+        }
+        strong {
+            display: block;
+            margin-bottom: 10px; /* Tambahkan jarak antara judul dan deskripsi */
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        
+        <a href="#" class="logo">ESQA<span>.</span></a>
+
+        <nav class="navbar">
+            <a href="index.html">Profil</a>
+            <a href="index.html">products</a>
+            <a href="index.html">review</a>
+            <a href="index.html">contact</a>
+            <a href="formtrans.html">Transaksi</a>
+        </nav>
+
+        <div class="icons">
+            <a href="login.html" class="fas fa-user"></a>
+        </div>
+    </header>
+
+    <h1>Langkah-Langkah Pembuatan Barang</h1>
+    <ol>
+        <li>
+            <strong>REGISTER:</strong>Untuk memulai anda harus Registrasi terlebih dahulu, yaitu dengan mengisi Nama, Email, Password, dan Re-Password. Jika sudah klik tombol Create My Account
+            <img src="img/RegisterBaru.png" alt="Persiapan Desain">
+        </li>
+        <li>
+            <strong>LOGIN:</strong> jika sudah mengisi Form Registrasi anda akan dibawa kehalaman login kembali, lalu Masukan Username dan Password, lalu klik login.
+            <img src="img/LoginBaru.png" alt="Pemilihan Bahan">
+        </li>
+        <li>
+            <strong>PROFILE:</strong> anda akan dialihkan ke halaman profil, lalu klik see product untuk melihat produk yang disediakan.
+            <img src="img/Profil.png" alt="Proses Produksi">
+        </li>
+        <li>
+            <strong>PRODUK:</strong> Setelah Masuk Kehalaman Product, silahkan memilih product yang diinginkan, lalu klik Buy.
+            <img src="img/Produk.png" alt="Pengujian Kualitas">
+        </li>
+        <li>
+            <strong>TRANSAKSI:</strong> Setelah mengklik buy anda akan dialihkan masuk ke halaman Transaksi silahkan mengisi form Transaksi, lalu klik Submit.
+            <img src="img/TransaksiBaru.png" alt="Pengepakan">
+        </li>
+        <li>
+            <strong>DAFTAR TRANSAKSI:</strong> dan tampilan terakhir berada pada daftar transaksi.
+            <img src="img/DaftarTransaksi.png" alt="Pengiriman">
+        </li>
+    </ol>
+</body>
+</html>
