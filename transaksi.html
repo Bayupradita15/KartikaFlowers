@@ -5,94 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>KartikaFlowers</title>
+    <title>Aplikasi Penjualan Barang</title>
+
 </head>
 <body>
+    
+<!-- header start -->
+ <header>
 
-<!-- Konten sebelumnya -->
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    
+    <a href="#" class="logo">ESQA<span>.</span></a>
 
-<section class="transaction" id="transaction">
-    <h1 class="heading"> <span>Transaction</span> </h1>
-    <div class="cart-container">
-        <div class="cart-items">
-            <h2>Your Cart</h2>
-            <ul id="cart-list">
-                <!-- Produk yang ditambahkan akan muncul di sini -->
-            </ul>
-        </div>
-        <div class="cart-summary">
-            <h2>Order Summary</h2>
-            <p>Total Items: <span id="total-items">0</span></p>
-            <p>Total Price: IDR <span id="total-price">0</span></p>
-            <button id="checkout-btn" class="btn">Checkout</button>
-        </div>
+    <nav class="navbar">
+        <a href="index.html">Profil</a>
+        <a href="index.html">products</a>
+        <a href="index.html">review</a>
+        <a href="index.html">contact</a>
+        <a href="formtrans.html">Transaksi</a>
+
+    </nav>
+
+    <div class="icons">
+        <a href="login.html" class="fas fa-user"></a>
     </div>
-</section>
 
-<!-- Konten sebelumnya -->
+ </header>
 
-<script>
-    const cart = [];
+ <!-- header end -->
 
-    // Fungsi untuk menambahkan produk ke keranjang
-    function addToCart(productName, productPrice) {
-        const product = { name: productName, price: productPrice };
-        cart.push(product);
-        updateCartUI();
-        alert(`${productName} telah ditambahkan ke keranjang.`);
-    }
-
-    // Fungsi untuk memperbarui tampilan keranjang
-    function updateCartUI() {
-        const cartList = document.getElementById('cart-list');
-        const totalItems = document.getElementById('total-items');
-        const totalPrice = document.getElementById('total-price');
-
-        cartList.innerHTML = '';
-        let total = 0;
-
-        cart.forEach((product, index) => {
-            total += product.price;
-            const listItem = document.createElement('li');
-            listItem.textContent = `${product.name} - IDR ${product.price}`;
-
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = 'Remove';
-            removeBtn.onclick = () => {
-                cart.splice(index, 1);
-                updateCartUI();
-            };
-
-            listItem.appendChild(removeBtn);
-            cartList.appendChild(listItem);
-        });
-
-        totalItems.textContent = cart.length;
-        totalPrice.textContent = total;
-    }
-
-    // Event listener untuk tombol Checkout
-    document.getElementById('checkout-btn').onclick = () => {
-        if (cart.length === 0) {
-            alert('Keranjang kosong. Tambahkan produk terlebih dahulu.');
-        } else {
-            alert('Terima kasih atas pembelian Anda!');
-            cart.length = 0; // Kosongkan keranjang
-            updateCartUI();
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-    };
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+        }
+        .checkbox-label input {
+            margin-right: 10px;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        .form-row .half-width {
+            flex: 1;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Contact</h2>
+        <label for="email">Email or mobile phone number</label>
+        <input type="text" id="email" name="email" placeholder="Email or mobile phone number" required>
+        <div class="checkbox-label">
+            <input type="checkbox" id="news-offers" name="news-offers">
+            <label for="news-offers">Email me with news and offers</label>
+        </div>
 
-    // Menambahkan event listener ke tombol "Tambahkan ke keranjang"
-    document.querySelectorAll('.cart-btn').forEach(button => {
-        button.onclick = (e) => {
-            const productElement = e.target.closest('.box');
-            const productName = productElement.querySelector('h3').textContent;
-            const productPrice = parseInt(productElement.querySelector('.price').textContent.replace(/[^0-9]/g, ''));
+        <h2>Delivery</h2>
+        <label for="country">Country/Region</label>
+        <select id="country" name="country">
+            <option value="indonesia">Indonesia</option>
+            <option value="other">Other</option>
+        </select>
 
-            addToCart(productName, productPrice);
-        };
-    });
-</script>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="first-name">First name (optional)</label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="half-width">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+        </div>
 
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="sub-district">Sub District (e.g Kebayoran Baru)</label>
+        <input type="text" id="sub-district" name="sub-district" required>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+
+        <div class="form-row">
+            <div class="half-width">
+                <label for="province">Province</label>
+                <select id="province" name="province">
+                    <option value="west-java">West Java</option>
+                    <option value="central-java">Central Java</option>
+                </select>
+            </div>
+            <div class="half-width">
+                <label for="postal-code">Postal code</label>
+                <input type="text" id="postal-code" name="postal-code" required>
+            </div>
+        </div>
+
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <div class="checkbox-label">
+            <input type="checkbox" id="save-info" name="save-info">
+            <label for="save-info">Save this information for next time</label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </div>
 </body>
 </html>
