@@ -3,30 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Login | ESQA</title>
+
+    <style>
+        /* ===== LOGIN PAGE ===== */
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe6f0, #ffd1e8);
+        }
+
+        .login-wrapper{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 8rem; /* supaya tidak ketutup header */
+        }
+
+        .login-container{
+            background: #fff;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.15);
+        }
+
+        .login-container h1{
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .login-container input{
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            border-radius: .8rem;
+            border: .1rem solid #ccc;
+        }
+
+        .login-container input:focus{
+            border-color: #e84393;
+            outline: none;
+        }
+
+        .login-container button{
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 5rem;
+            border: none;
+            background: #e84393;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-container button:hover{
+            background: #c7367c;
+        }
+
+        .register-link{
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .register-link a{
+            color: #e84393;
+            text-decoration: none;
+        }
+
+        .register-link a:hover{
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="login-page">
 
-<div class="login-card">
-    <h3>Login</h3>
+<body>
 
-    <form>
-        <div class="form-group">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" placeholder="Enter your username" required>
-        </div>
+<!-- HEADER -->
+<header>
+    <input type="checkbox" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
 
-        <div class="form-group">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter your password" required>
-        </div>
+    <a href="index.html" class="logo">ESQA<span>.</span></a>
 
-        <a href="Profil.html" class="login-btn">Login</a>
+    <nav class="navbar">
+        <a href="index.html">Profil</a>
+        <a href="index.html">Products</a>
+        <a href="index.html">Review</a>
+        <a href="index.html">Contact</a>
+        <a href="formtrans.html">Transaksi</a>
+    </nav>
+
+    <div class="icons">
+        <a href="login.html" class="fas fa-user"></a>
+    </div>
+</header>
+
+<!-- LOGIN -->
+<div class="login-wrapper">
+    <div class="login-container">
+        <h1>Login</h1>
+
+        <!-- GitHub Pages: dummy login -->
+        <form action="index.html">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
 
         <div class="register-link">
-            <a href="Login2.html">Don't have an account? Register</a>
+            Belum punya akun? <a href="signin.html">Daftar di sini</a>
         </div>
-    </form>
+    </div>
 </div>
 
 </body>
